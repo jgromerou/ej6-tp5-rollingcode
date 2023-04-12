@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url(../img/relojDigitalFondo.jpg);
+  font-family: 'Orbitron', sans-serif;
+}
+
+main {
+  flex-grow: 1;
+}
+
+p {
+  color: #fff;
+}
+.textoAzul {
+  text-shadow: 0 0 5px #1a17b8, 0 0 10px #1a17b8, 0 0 15px #1a17b8,
+    0 0 20px #1a17b8, 0 0 30px #1a17b8, 0 0 40px #1a17b8, 0 0 50px #1a17b8,
+    0 0 70px #1a17b8, 0 0 90px #1a17b8, 0 0 100px #1a17b8;
+}
+
+.textoFucsia {
+  text-shadow: 0 0 5px #7d17b8, 0 0 10px #7d17b8, 0 0 15px #7d17b8,
+    0 0 20px #7d17b8, 0 0 30px #7d17b8, 0 0 40px #7d17b8, 0 0 50px #7d17b8,
+    0 0 70px #7d17b8, 0 0 90px #7d17b8, 0 0 100px #7d17b8;
+}
+
+.textoVerde {
+  text-shadow: 0 0 5px rgb(134, 255, 148), 0 0 10px rgb(134, 255, 148),
+    0 0 15px rgb(134, 255, 148), 0 0 20px rgb(134, 255, 148),
+    0 0 30px rgb(134, 255, 148), 0 0 40px rgb(134, 255, 148),
+    0 0 50px rgb(134, 255, 148), 0 0 70px rgb(134, 255, 148),
+    0 0 90px rgb(134, 255, 148), 0 0 100px rgb(134, 255, 148);
+}
+
+.textoBlanco {
+  color: #fff;
+}
+
+.btn {
+  color: #fff;
+}
+
+.btnAzul {
+  background: #54a6ef;
+  color: #000;
+}
+.btnVerde {
+  background: #86ff94;
+  color: #000;
+}
+.btnFucsia {
+  background: #7d17b8;
+}
+
+.btnAzul:hover {
+  border: 1px solid #54a6ef;
+  color: #54a6ef;
+}
+.btnVerde:hover {
+  border: 1px solid #86ff94;
+  color: #86ff94;
+}
+.btnFucsia:hover {
+  border: 1px solid #7d17b8;
+  color: #7d17b8;
+}
