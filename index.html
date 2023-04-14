@@ -34,6 +34,24 @@
       <section>
         <article>
           <p id="time" class="textoBlanco textoFucsia fs-1">00:00:00</p>
+
+          <!-- <label for="appt">Select a time:</label>
+          <input type="time" id="appt" name="appt" /> -->
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <input type="text" class="form-control" id="datetimepicker4" />
+              </div>
+
+              <script type="text/javascript">
+                $(function () {
+                  $('#datetimepicker4').datetimepicker();
+                  pickDate: false;
+                });
+              </script>
+            </div>
+          </div>
+
           <section class="mt-5">
             <button id="botonIniciar" class="btn btnAzul">Iniciar</button>
             <button id="botonPausar" class="btn btnVerde">Pausar</button>
@@ -51,5 +69,25 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/app.js"></script>
+
+    <script>
+      var firstOpen = true;
+      var time;
+
+      $('#timePicker')
+        .datetimepicker({
+          useCurrent: false,
+          format: 'hh:mm:ss A',
+        })
+        .on('dp.show', function () {
+          if (firstOpen) {
+            time = moment().startOf('day');
+            firstOpen = false;
+          } else {
+            time = '01:00:00 PM';
+          }
+          $(this).data('DateTimePicker').date(time);
+        });
+    </script>
   </body>
 </html>
