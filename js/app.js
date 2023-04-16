@@ -1,11 +1,6 @@
 let cronometro;
-
 let segundos, minutos, horas;
-
-let segundosSelect = 0;
-let minutosSelect = 0;
-let horasSelect = 0;
-
+let bandera = true;
 inicializar();
 activarBotones(false, true, true);
 
@@ -51,6 +46,9 @@ function init() {
 }
 
 function timer() {
+  if (segundos === 0 && minutos === 0 && segundos === 0 && bandera) {
+    mostrarModal00();
+  }
   mostrarHora();
   segundos--;
   if (segundos < 0) {
@@ -63,7 +61,9 @@ function timer() {
   }
   if (horas < 0) {
     detener();
-    mostrarModal();
+    if (!bandera) {
+      mostrarModal();
+    }
     volveraCeroSelect();
   }
 }
@@ -90,20 +90,23 @@ function inicializar() {
   horas = 0;
   // Segundos
   const selectSegundos = document.getElementById('selectSegundos');
-  document
-    .getElementById('selectSegundos')
-    .addEventListener('change', () => (segundos = selectSegundos.value));
+  document.getElementById('selectSegundos').addEventListener('change', () => {
+    segundos = selectSegundos.value;
+    bandera = false;
+  });
   // Minutos
   const selectMinutos = document.getElementById('selectMinutos');
-  document
-    .getElementById('selectMinutos')
-    .addEventListener('change', () => (minutos = selectMinutos.value));
+  document.getElementById('selectMinutos').addEventListener('change', () => {
+    segundos = selectMinutos.value;
+    bandera = false;
+  });
 
   //horas
   const selectHoras = document.getElementById('selectHoras');
-  document
-    .getElementById('selectHoras')
-    .addEventListener('change', () => (horas = selectHoras.value));
+  document.getElementById('selectHoras').addEventListener('change', () => {
+    horas = selectHoras.value;
+    bandera = false;
+  });
 }
 
 function pausar() {
@@ -150,5 +153,14 @@ function mostrarModal() {
   let myModal = new bootstrap.Modal(document.getElementById('myModal'));
   myModal.show();
   let modalBody = document.getElementById('modal-body');
+  modalBody.className = 'bg-danger text-white p-2 m-1';
   modalBody.innerHTML = 'Tiempo Agotado!!!';
+}
+
+function mostrarModal00() {
+  let myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  myModal.show();
+  let modalBody = document.getElementById('modal-body');
+  modalBody.className = 'bg-danger text-white p-2 m-1';
+  modalBody.innerHTML = 'Debes ingresar valores mayores a 0';
 }
