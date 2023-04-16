@@ -104,7 +104,6 @@ function inicializar() {
   document
     .getElementById('selectHoras')
     .addEventListener('change', () => (horas = selectHoras.value));
-  mostrarHora();
 }
 
 function pausar() {
