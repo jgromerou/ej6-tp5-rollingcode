@@ -62,7 +62,8 @@ function timer() {
   }
   if (horas < 0) {
     detener();
-    alert('Tiempo agotado');
+    //alert('Tiempo agotado');
+    mostrarModal();
     volveraCeroSelect();
   }
   mostrarHora();
@@ -148,4 +149,11 @@ function mostraresconderSelect() {
   } else {
     selectHMS.classList.add('d-none');
   }
+}
+
+function mostrarModal() {
+  let myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  myModal.show();
+  let modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML = 'Tiempo Agotado!!!';
 }
