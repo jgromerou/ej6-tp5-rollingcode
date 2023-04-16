@@ -32,31 +32,37 @@
     </header>
     <main class="box pt-3 text-center">
       <section>
-        <article>
-          <p id="time" class="textoBlanco textoFucsia fs-1">00:00:00</p>
+        <article class="m-4">
+          <!-- <p id="time" class="textoBlanco textoFucsia fs-1">00:00:00</p> -->
 
-          <!-- <label for="appt">Select a time:</label>
-          <input type="time" id="appt" name="appt" /> -->
           <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <input type="text" class="form-control" id="datetimepicker4" />
-              </div>
-
-              <script type="text/javascript">
-                $(function () {
-                  $('#datetimepicker4').datetimepicker();
-                  pickDate: false;
-                });
-              </script>
+            <div class="row justify-content-center">
+              <select class="form-select anchoSelect" id="selectHoras">
+                <option selected disabled>00</option>
+                <option>01</option>
+                <option>02</option>
+              </select>
+              <select class="form-select anchoSelect" id="selectMinutos">
+                <option selected disabled>00</option>
+                <option>01</option>
+                <option>02</option>
+              </select>
+              <select class="form-select anchoSelect" id="selectSegundos">
+                <option selected disabled>00</option>
+                <option>01</option>
+                <option>02</option>
+              </select>
             </div>
           </div>
+        </article>
 
-          <section class="mt-5">
-            <button id="botonIniciar" class="btn btnAzul">Iniciar</button>
-            <button id="botonPausar" class="btn btnVerde">Pausar</button>
-            <button id="botonDetener" class="btn btnFucsia">Detener</button>
-          </section>
+        <!-- <label for="appt">Select a time:</label>
+          <input type="time" id="appt" name="appt" /> -->
+
+        <article class="mt-5">
+          <button id="botonIniciar" class="btn btnAzul m-1">Iniciar</button>
+          <button id="botonPausar" class="btn btnVerde m-1">Pausar</button>
+          <button id="botonDetener" class="btn btnFucsia m-1">Detener</button>
         </article>
       </section>
     </main>
