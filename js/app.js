@@ -51,6 +51,8 @@ function init() {
 }
 
 function timer() {
+  mostrarHora();
+  console.log(segundos);
   segundos--;
   if (segundos < 0) {
     segundos = 59;
@@ -66,7 +68,6 @@ function timer() {
     mostrarModal();
     volveraCeroSelect();
   }
-  mostrarHora();
 }
 function mostrarHora() {
   document.getElementById('time').innerHTML = `${horas
