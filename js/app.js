@@ -52,7 +52,6 @@ function init() {
 
 function timer() {
   mostrarHora();
-  console.log(segundos);
   segundos--;
   if (segundos < 0) {
     segundos = 59;
@@ -64,7 +63,6 @@ function timer() {
   }
   if (horas < 0) {
     detener();
-    //alert('Tiempo agotado');
     mostrarModal();
     volveraCeroSelect();
   }
@@ -106,9 +104,6 @@ function inicializar() {
   document
     .getElementById('selectHoras')
     .addEventListener('change', () => (horas = selectHoras.value));
-  // horas = horasSelect;
-  // minutos = minutosSelect;
-  segundos = segundosSelect;
   mostrarHora();
 }
 
