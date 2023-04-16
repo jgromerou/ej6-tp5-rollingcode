@@ -33,25 +33,19 @@
     <main class="box pt-3 text-center">
       <section>
         <article class="m-4">
-          <!-- <p id="time" class="textoBlanco textoFucsia fs-1">00:00:00</p> -->
+          <p id="time" class="textoBlanco textoFucsia fs-1"></p>
 
-          <div class="container">
+          <div class="container" id="selectHMS">
             <div class="row justify-content-center">
-              <select class="form-select anchoSelect" id="selectHoras">
-                <option selected disabled>00</option>
-                <option>01</option>
-                <option>02</option>
-              </select>
-              <select class="form-select anchoSelect" id="selectMinutos">
-                <option selected disabled>00</option>
-                <option>01</option>
-                <option>02</option>
-              </select>
-              <select class="form-select anchoSelect" id="selectSegundos">
-                <option selected disabled>00</option>
-                <option>01</option>
-                <option>02</option>
-              </select>
+              <select class="form-select anchoSelect" id="selectHoras"></select>
+              <select
+                class="form-select anchoSelect"
+                id="selectMinutos"
+              ></select>
+              <select
+                class="form-select anchoSelect"
+                id="selectSegundos"
+              ></select>
             </div>
           </div>
         </article>
@@ -76,7 +70,7 @@
     ></script>
     <script src="js/app.js"></script>
 
-    <script>
+    <!-- <script>
       var firstOpen = true;
       var time;
 
@@ -94,6 +88,6 @@
           }
           $(this).data('DateTimePicker').date(time);
         });
-    </script>
+    </script> -->
   </body>
 </html>
