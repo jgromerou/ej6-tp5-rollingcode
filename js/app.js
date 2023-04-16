@@ -63,6 +63,7 @@ function timer() {
     detener();
     if (!bandera) {
       mostrarModal();
+      bandera = true;
     }
     volveraCeroSelect();
   }
