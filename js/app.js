@@ -1,8 +1,8 @@
 let cronometro;
 let segundos, minutos, horas;
-let bandera = true;
-inicializar();
+let primeraVez = true;
 activarBotones(false, true, true);
+mostrarSelect(true);
 
 //addEventListener
 window.addEventListener('DOMContentLoaded', select);
@@ -16,9 +16,9 @@ function select() {
   const selectHoras = document.getElementById('selectHoras');
   optionChoose(selectHoras, 99);
   const selectMinutos = document.getElementById('selectMinutos');
-  optionChoose(selectMinutos, 99);
+  optionChoose(selectMinutos, 59);
   const selectSegundos = document.getElementById('selectSegundos');
-  optionChoose(selectSegundos, 99);
+  optionChoose(selectSegundos, 59);
 }
 
 function optionChoose(selectId, numero) {
@@ -38,17 +38,26 @@ function optionChoose(selectId, numero) {
 }
 
 function init() {
-  cronometro = setInterval(function () {
-    timer();
-  }, 1000);
-  activarBotones(true, false, false);
-  mostraresconderSelect();
+  if (
+    document.getElementById('selectHoras').value === '00' &&
+    document.getElementById('selectMinutos').value === '00' &&
+    document.getElementById('selectSegundos').value === '00'
+  ) {
+    mostrarModal00();
+    return;
+  } else {
+    activarBotones(true, false, false);
+    mostrarSelect(false);
+    if (primeraVez) {
+      inicializar();
+    }
+    cronometro = setInterval(function () {
+      timer();
+    }, 1000);
+  }
 }
 
 function timer() {
-  if (segundos === 0 && minutos === 0 && segundos === 0 && bandera) {
-    mostrarModal00();
-  }
   mostrarHora();
   segundos--;
   if (segundos < 0) {
@@ -61,14 +70,12 @@ function timer() {
   }
   if (horas < 0) {
     detener();
-    if (!bandera) {
-      mostrarModal();
-      bandera = true;
-    }
+    mostrarModal();
     volveraCeroSelect();
   }
 }
 function mostrarHora() {
+  document.getElementById('time').style.display = 'block';
   document.getElementById('time').innerHTML = `${horas
     .toString()
     .padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos
@@ -78,36 +85,25 @@ function mostrarHora() {
 
 function detener() {
   clearInterval(cronometro);
+  volveraCeroSelect();
   inicializar();
   activarBotones(false, true, true);
   document.getElementById('botonIniciar').innerHTML = 'Iniciar';
-  volveraCeroSelect();
-  mostraresconderSelect();
+  document.getElementById('time').style.display = 'none';
+  mostrarSelect(true);
+  primeraVez = true;
 }
 
 function inicializar() {
   segundos = 0;
   minutos = 0;
   horas = 0;
-  // Segundos
-  const selectSegundos = document.getElementById('selectSegundos');
-  document.getElementById('selectSegundos').addEventListener('change', () => {
-    segundos = selectSegundos.value;
-    bandera = false;
-  });
-  // Minutos
-  const selectMinutos = document.getElementById('selectMinutos');
-  document.getElementById('selectMinutos').addEventListener('change', () => {
-    segundos = selectMinutos.value;
-    bandera = false;
-  });
 
-  //horas
-  const selectHoras = document.getElementById('selectHoras');
-  document.getElementById('selectHoras').addEventListener('change', () => {
-    horas = selectHoras.value;
-    bandera = false;
-  });
+  segundos = document.getElementById('selectSegundos').value;
+  minutos = document.getElementById('selectMinutos').value;
+  horas = document.getElementById('selectHoras').value;
+
+  primeraVez = false;
 }
 
 function pausar() {
@@ -141,12 +137,11 @@ function volveraCeroSelect() {
   document.getElementById('selectHoras').value = '00';
 }
 
-function mostraresconderSelect() {
-  const selectHMS = document.getElementById('selectHMS');
-  if (selectHMS.classList.contains('d-none')) {
-    selectHMS.classList.remove('d-none');
+function mostrarSelect(estadoSelect) {
+  if (estadoSelect) {
+    document.getElementById('selectHMS').classList.remove('d-none');
   } else {
-    selectHMS.classList.add('d-none');
+    document.getElementById('selectHMS').classList.add('d-none');
   }
 }
 
