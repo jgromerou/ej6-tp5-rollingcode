@@ -16,9 +16,9 @@ function select() {
   const selectHoras = document.getElementById('selectHoras');
   optionChoose(selectHoras, 99);
   const selectMinutos = document.getElementById('selectMinutos');
-  optionChoose(selectMinutos, 99);
+  optionChoose(selectMinutos, 59);
   const selectSegundos = document.getElementById('selectSegundos');
-  optionChoose(selectSegundos, 99);
+  optionChoose(selectSegundos, 59);
 }
 
 function optionChoose(selectId, numero) {
@@ -98,7 +98,7 @@ function inicializar() {
   // Minutos
   const selectMinutos = document.getElementById('selectMinutos');
   document.getElementById('selectMinutos').addEventListener('change', () => {
-    segundos = selectMinutos.value;
+    minutos = selectMinutos.value;
     bandera = false;
   });
 
